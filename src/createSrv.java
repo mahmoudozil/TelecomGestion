@@ -7,6 +7,8 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import Class.Employe;
+import Class.Internet;
+import Class.CommVocale;
 
 public class createSrv extends HttpServlet {
 
@@ -29,11 +31,13 @@ public class createSrv extends HttpServlet {
 
         if(isp.length() == 0)
         {
+            new CommVocale(id,des,cost);
             int ok1 = c.updateExec("insert into commVocale values ('"+id+"');");
 
         }
         else
         {
+            new Internet(id,des,cost,isp);
             int ok2 = c.updateExec("insert into internet values ('"+id+"','"+isp+"');");
 
         }

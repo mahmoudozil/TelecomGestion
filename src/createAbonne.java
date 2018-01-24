@@ -7,6 +7,7 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import Class.Employe;
+import Class.Abonne;
 
 public class createAbonne extends HttpServlet {
 
@@ -24,7 +25,7 @@ public class createAbonne extends HttpServlet {
         connection c = new connection();
         c.driver();
         c.OpenConnexion();
-
+        new Abonne(mat,lname,fname,address,email);
         int ok = c.updateExec("insert into abonne values ('"+mat+"','"+lname+"','"+fname+"','"+address+"','"+email+"');");
         System.out.println(ok);
         if(ok==0)

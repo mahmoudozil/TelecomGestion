@@ -10,4 +10,23 @@ public class Internet extends Service {
         this.cout = cout;
         this.ISP = ISP;
     }
+
+    public int getNumService() {
+        return numService;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public float getCout() {
+        return cout;
+    }
+
+    public String getType() {
+        return type;
+    }
+    public String getISP() {
+        return ISP;
+    }
 }

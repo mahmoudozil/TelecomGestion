@@ -15,4 +15,24 @@ public class Abonne {
         this.address = address;
         this.email = email;
     }
+
+    public int getMatAbonne() {
+        return matAbonne;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }

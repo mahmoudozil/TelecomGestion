@@ -1,9 +1,11 @@
 
 import cx.connection;
-
+import Class.Mobile;
+import  Class.Fixe;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
+import javax.sound.sampled.Line;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
@@ -35,7 +37,7 @@ public class createLine extends HttpServlet {
         connection c = new connection();
         c.driver();
         c.OpenConnexion();
-    int ok;
+        int ok;
 
         if(locGeo.length() == 0)
         {
@@ -59,7 +61,7 @@ public class createLine extends HttpServlet {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
+            new Mobile(numLigne,idAbn,typeMobile,reseau,serviceInternet,serviceCommvocale);
             ok = c.updateExec("insert into ligne values ('"+numLigne+"','"+idAbn+"','"+type+"');");
             int ok1 = c.updateExec("insert into mobile values ('"+numLigne+"','"+typeMobile+"','"+reseau+"','"+serviceInternet+"','"+serviceCommvocale+"');");
 
@@ -84,7 +86,7 @@ public class createLine extends HttpServlet {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
+            new Fixe(numLigne,idAbn,locGeo);
             ok = c.updateExec("insert into ligne values ('"+numLigne+"','"+idAbn+"','"+type+"');");
             int ok2 = c.updateExec("insert into fixe values ('"+numLigne+"','"+locGeo+"');");
 

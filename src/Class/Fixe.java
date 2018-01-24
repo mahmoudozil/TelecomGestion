@@ -10,4 +10,19 @@ public class Fixe extends Ligne{
         this.matAbonne = matAbonne;
         this.localGeo = localGeo;
     }
+    public int getNumeroLigne() {
+        return numeroLigne;
+    }
+
+    public int getMatAbonne() {
+        return matAbonne;
+    }
+    public String getType()
+    {
+        return type;
+    }
+
+    public String getLocalGeo() {
+        return localGeo;
+    }
 }

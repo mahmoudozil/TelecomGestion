@@ -1,11 +1,9 @@
 package Class;
 
-public class Ligne {
+public abstract class Ligne {
     protected int numeroLigne;
     protected int matAbonne;
     protected String type;
 
-    public int getNumeroLigne() {
-        return numeroLigne;
-    }
+
 }

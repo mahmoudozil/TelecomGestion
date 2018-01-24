@@ -24,7 +24,7 @@ public class createEmp extends HttpServlet {
         connection c = new connection();
         c.driver();
         c.OpenConnexion();
-
+        new Employe(cin,name,email,pass,role);
         int ok = c.updateExec("insert into employees values ('"+cin+"','"+name+"','"+email+"','"+pass+"','"+role+"');");
         System.out.println(ok);
         if(ok==0)

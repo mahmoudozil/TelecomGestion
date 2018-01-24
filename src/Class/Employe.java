@@ -16,4 +16,24 @@ public class Employe {
         this.pass = pass;
         this.role = role;
     }
+
+    public int getCin() {
+        return cin;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public String getRole() {
+        return role;
+    }
 }
