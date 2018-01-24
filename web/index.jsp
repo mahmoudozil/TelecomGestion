@@ -131,8 +131,9 @@
       <input type="password" placeholder="password" name="pass" class="pass" />
       <input type="submit" value="Login" class="login" name="submit">
       <br>
+      <% if (error != null) { %>
       <div id="login_res" style="color:red"><%= error%></div>
-
+      <%}%>
     </form>
   </div>
 </div>

@@ -20,9 +20,11 @@ public class login extends HttpServlet {
         connection c = new connection();
         c.driver();
         c.OpenConnexion();
+        System.out.println(email);
+        System.out.println(pass);
         ResultSet rs= c.selectExec("select * from employees");
         boolean test = false;
-        req.setAttribute("error","");
+        req.setAttribute("error",null);
         try {
             while(rs.next()){
                 if(rs.getString(3).equals(email))

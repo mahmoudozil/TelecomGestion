@@ -13,6 +13,24 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>sendMail</servlet-name>
+        <servlet-class>sendMail</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sendMail</servlet-name>
+        <url-pattern>/sendMail</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>logout</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>home</servlet-name>
         <servlet-class>home</servlet-class>
     </servlet>
@@ -29,4 +47,47 @@
         <servlet-name>createEmp</servlet-name>
         <url-pattern>/createEmp</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deleteEmp</servlet-name>
+        <servlet-class>deleteEmp</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteEmp</servlet-name>
+        <url-pattern>/deleteEmp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>createSrv</servlet-name>
+        <servlet-class>createSrv</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>createSrv</servlet-name>
+        <url-pattern>/createSrv</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>createAbonne</servlet-name>
+        <servlet-class>createAbonne</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>createAbonne</servlet-name>
+        <url-pattern>/createAbonne</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>createLine</servlet-name>
+        <servlet-class>createLine</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>createLine</servlet-name>
+        <url-pattern>/createLine</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>createFacture</servlet-name>
+        <servlet-class>createFacture</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>createFacture</servlet-name>
+        <url-pattern>/createFacture</url-pattern>
+    </servlet-mapping>
+
 </web-app>

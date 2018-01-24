@@ -5,4 +5,7 @@ public class Ligne {
     protected int matAbonne;
     protected String type;
 
+    public int getNumeroLigne() {
+        return numeroLigne;
+    }
 }

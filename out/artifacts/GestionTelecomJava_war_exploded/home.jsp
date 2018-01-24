@@ -17,6 +17,7 @@
     <meta name="author" content="">
 
 
+
     <title>Telecom Dashboard</title>
 
     <!-- Bootstrap Core CSS -->
@@ -54,18 +55,13 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/startmin.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
+
     <!--   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
      -->  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        function dash() {
-            window.location.href = "home#dashboard";
-        }
-    </script>
+
 
 </head>
-<body onload="dash()">
+<body >
 
 <div id="wrapper">
 
@@ -86,7 +82,7 @@
         <ul class="nav navbar-right navbar-top-links">
             <li class="divider"></li>
             <li>
-                <a href="login"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                <a href="logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
             </li>
 
         </ul>
@@ -97,31 +93,27 @@
 
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="#dashboard"><i class="fa fa-sitemap fa-fw"></i> Dashboard</a>
+                        <a href="#dashboard" id="dashboard1"><i class="fa fa-sitemap fa-fw"></i> Dashboard</a>
 
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-user fa-fw"></i> Employees</a>
+                        <a href="#employees" id="employees1"><i class="fa fa-user fa-fw"></i> Employees</a>
 
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-users fa-fw"></i> Subscribers</a>
+                        <a href="#subs" id="subs1"><i class="fa fa-users fa-fw"></i> Subscribers</a>
 
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-legal fa-fw"></i> Contracts</a>
+                        <a href="#services" id="services1"><i class="fa fa-heart fa-fw"></i> Services</a>
 
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-heart fa-fw"></i> Services</a>
+                        <a href="#lines" id="lines1"><i class="fa fa-phone fa-fw"></i> Lines</a>
 
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-phone fa-fw"></i> Lines</a>
-
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-money fa-fw"></i> Bills</a>
+                        <a href="#bills" id="bills1"><i class="fa fa-money fa-fw"></i> Bills</a>
 
                     </li>
                 </ul>
@@ -136,13 +128,175 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Bonjour <%= request.getSession(true).getAttribute("name")%></h1>
+                <h1 class="page-header">Good Morning <%= request.getSession(true).getAttribute("name")%></h1>
 
             </div>
 
         </div>
     </div>
-</div>
 
+    <jsp:include page="afficheEmp.jsp" ></jsp:include>
+    <jsp:include page="services.jsp" ></jsp:include>
+    <jsp:include page="abonnes.jsp" ></jsp:include>
+    <jsp:include page="lines.jsp" ></jsp:include>
+    <jsp:include page="factures.jsp" ></jsp:include>
+
+
+
+
+</div>
+<script>
+
+    if((<%=request.getAttribute("perm")%>)==2) //services
+    {
+        $("#employees1").hide();
+        $("#services1").show();
+        $("#lines1").hide();
+        $("#subs1").hide();
+        $("#bills1").show();
+        $("#dashboard1").show();
+    }
+    else if((<%=request.getAttribute("perm")%>)==3) //contracts
+    {
+        $("#employees1").hide();
+        $("#services1").hide();
+        $("#lines1").show();
+        $("#subs1").show();
+        $("#bills1").hide();
+        $("#dashboard1").show();
+    }
+    else
+    {
+        $("#employees1").show();
+        $("#services1").show();
+        $("#lines1").show();
+        $("#subs1").show();
+        $("#bills1").show();
+        $("#dashboard1").show();
+    }
+
+
+    if((<%=request.getAttribute("pageToShow")%>)==1)
+    {
+        $("#employees").show();
+        $("#services").hide();
+        $("#lines").hide();
+        $("#subs").hide();
+        $("#bills").hide();
+        $("#dashboard").hide();
+    }
+    if((<%=request.getAttribute("pageToShow")%>)==2)
+    {
+        $("#employees").hide();
+        $("#services").hide();
+        $("#lines").hide();
+        $("#subs").show();
+        $("#bills").hide();
+        $("#dashboard").hide();
+    }
+    if((<%=request.getAttribute("pageToShow")%>)==3)
+    {
+        $("#employees").hide();
+        $("#services").show();
+        $("#lines").hide();
+        $("#subs").hide();
+        $("#bills").hide();
+        $("#dashboard").hide();
+    }
+
+    if((<%=request.getAttribute("pageToShow")%>)==4)
+    {
+        $("#employees").hide();
+        $("#services").hide();
+        $("#lines").show();
+        $("#subs").hide();
+        $("#bills").hide();
+        $("#dashboard").hide();
+    }
+
+    if((<%=request.getAttribute("pageToShow")%>)==5)
+    {
+        $("#employees").hide();
+        $("#services").hide();
+        $("#lines").hide();
+        $("#subs").hide();
+        $("#bills").show();
+        $("#dashboard").hide();
+    }
+
+
+    if(window.location.href.includes("http://localhost:8080/login?"))
+    {
+
+        window.location.href = "http://localhost:8080/home#dashboard";
+
+
+    }
+    if(window.location.href == "http://localhost:8080/home#dashboard")
+    {
+        $("#employees").hide();
+        $("#services").hide();
+        $("#lines").hide();
+        $("#subs").hide();
+        $("#bills").hide();
+        $("#dashboard").show();
+
+    }
+
+    $("#dashboard1").click(function(){
+        $("#employees").hide();
+        $("#services").hide();
+        $("#lines").hide();
+        $("#subs").hide();
+        $("#bills").hide();
+        $("#dashboard").show();
+    });
+
+    $("#employees1").click(function(){
+        $("#employees").show();
+        $("#services").hide();
+        $("#lines").hide();
+        $("#subs").hide();
+        $("#bills").hide();
+        $("#dashboard").hide();
+    });
+
+    $("#services1").click(function(){
+        $("#employees").hide();
+        $("#services").show();
+        $("#lines").hide();
+        $("#subs").hide();
+        $("#bills").hide();
+        $("#dashboard").hide();
+    });
+
+    $("#lines1").click(function(){
+        $("#employees").hide();
+        $("#services").hide();
+        $("#lines").show();
+        $("#subs").hide();
+        $("#bills").hide();
+        $("#dashboard").hide();
+    });
+
+    $("#subs1").click(function(){
+        $("#employees").hide();
+        $("#services").hide();
+        $("#lines").hide();
+        $("#subs").show();
+        $("#bills").hide();
+        $("#dashboard").hide();
+    });
+
+    $("#bills1").click(function(){
+        $("#employees").hide();
+        $("#services").hide();
+        $("#lines").hide();
+        $("#subs").hide();
+        $("#bills").show();
+        $("#dashboard").hide();
+    });
+
+</script>
 </body>
 </html>
